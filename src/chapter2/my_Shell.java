@@ -54,7 +54,7 @@ public class my_Shell {
      * Rearranges the array in ascending order, using the natural order.
      * @param a the array to be sorted
      */
-    // my
+// my
 //    public static void sort(Comparable[] a) {
 //        int N=a.length;
 //        int h=1;
