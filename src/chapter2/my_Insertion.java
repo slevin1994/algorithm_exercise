@@ -59,7 +59,7 @@ public class my_Insertion {
      * Rearranges the array in ascending order, using the natural order.
      * @param a the array to be sorted
      */
-    // my
+// my
 //    public static void sort(Comparable[] a) {
 //        int n=a.length;
 //        for (int i=0;i<n;i++) {
