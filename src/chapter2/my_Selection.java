@@ -10,7 +10,7 @@ import edu.princeton.cs.algs4.StdOut;
 //1
 public class my_Selection {
 	
-// 1
+// my
 	public static void sort(Comparable[] a) {
 		
 		int N=a.length;
