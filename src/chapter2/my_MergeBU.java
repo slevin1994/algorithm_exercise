@@ -76,15 +76,27 @@ public class my_MergeBU {
 //    	}
 //    }
     //book
+//    public static void sort(Comparable[] a) {
+//    	int N=a.length;
+//    	Comparable[] aux=new Comparable[N];
+//    	for(int sz=1;sz<N;sz+=sz) {
+//    		for(int i=0;i<N-sz;i+=sz+sz) {
+//    			merge(a,aux,i,i+sz-1,Math.min(i+sz+sz-1,N-1));
+//    		}
+//    	}
+//    }
+    //again
     public static void sort(Comparable[] a) {
+
     	int N=a.length;
     	Comparable[] aux=new Comparable[N];
-    	for(int sz=1;sz<N;sz+=sz) {
+    	for(int sz=1;sz<N;sz=sz+sz) {
     		for(int i=0;i<N-sz;i+=sz+sz) {
-    			merge(a,aux,i,i+sz-1,Math.min(i+sz+sz-1,N-1));
+    			merge(a,aux,i,i+sz-1,Math.min(N-1,i+sz+sz-1));
     		}
     	}
     }
+    
 //    public static void sort(Comparable[] a) {
 //        int n = a.length;
 //        Comparable[] aux = new Comparable[n];
