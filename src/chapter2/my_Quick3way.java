@@ -88,25 +88,49 @@ public class my_Quick3way {
 //
 //    }
    //book
+//  private static void sort(Comparable[] a, int lo, int hi) { 
+//	  //lo~lt
+//	  //lt+1~i
+//	  //
+//	  //gt~hi
+//	if(hi<=lo) return;
+//	int lt=lo,i=lo+1,gt=hi;
+//	Comparable v=a[lo];
+//	while(i<=gt) {
+//		int cmp=a[i].compareTo(v);
+//		if(cmp<0)
+//			exch(a,i++,lt++);
+//		else if(cmp>0)
+//			exch(a,i,gt--);
+//		else
+//			i++;
+//	}
+//	sort(a,lo,lt-1);
+//	sort(a,gt+1,hi);
+//
+//}
+    //again
   private static void sort(Comparable[] a, int lo, int hi) { 
-	  //lo~lt
-	  //lt+1~i
-	  //
-	  //gt~hi
-	if(hi<=lo) return;
-	int lt=lo,i=lo+1,gt=hi;
-	Comparable v=a[lo];
-	while(i<=gt) {
-		int cmp=a[i].compareTo(v);
-		if(cmp<0)
-			exch(a,i++,lt++);
-		else if(cmp>0)
-			exch(a,i,gt--);
-		else
-			i++;
-	}
-	sort(a,lo,lt-1);
-	sort(a,gt+1,hi);
+	  //lo~lt-1 xiao
+
+	  //gt+1~hi da
+	  if(hi<=lo) return;
+	  
+	  int lt=lo;
+	  int gt=hi;
+	  int i=lo;
+	  Comparable v=a[lo];
+	  while(i<=gt) {
+		  int cmp=a[i].compareTo(v);
+		  if(cmp<0) {
+			  exch(a,i++,lt++);
+		  }else if(cmp>0) {
+			  exch(a,i,gt--);
+		  }else
+			  i++;
+	  }
+		sort(a,lo,lt-1);
+		sort(a,gt+1,hi);
 
 }
     
