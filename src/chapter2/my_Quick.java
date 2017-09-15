@@ -86,20 +86,41 @@ public class my_Quick {
 //    	
 //    }
     //book
+//    private static int partition(Comparable[] a,int lo,int hi) {
+//    	int i=lo;
+//    	int j=hi+1;
+//    	Comparable v=a[lo];
+//    	while(true) {
+//    		while(less(a[++i],v)) if(i==hi) break;
+//    		while(less(v,a[--j])) if(j==lo) break;
+//    		if(i>=j) break;
+//    		exch(a,i,j);
+//    	}
+//    	exch(a,lo,j);
+//		return j;
+//    	
+//    }
+    //again
     private static int partition(Comparable[] a,int lo,int hi) {
+
     	int i=lo;
-    	int j=hi+1;
-    	Comparable v=a[lo];
-    	while(true) {
-    		while(less(a[++i],v)) if(i==hi) break;
-    		while(less(v,a[--j])) if(j==lo) break;
-    		if(i>=j) break;
-    		exch(a,i,j);
-    	}
+    	int j=hi;
+
+    	while(i<=j) 
+    		if(less(a[lo],a[i])) 
+    			exch(a,i,j--);
+    		else
+    		{
+    			i++;
+    		}
     	exch(a,lo,j);
-		return j;
+    	return j;
     	
     }
+    	
+		
+    	
+
 
     /**
      * Rearranges the array so that {@code a[k]} contains the kth smallest key;
