@@ -53,39 +53,63 @@ public class my_Quick3way {
     }
 
     // quicksort the subarray a[lo .. hi] using 3-way partitioning
-    private static void sort(Comparable[] a, int lo, int hi) { 
-       if(lo>=hi) {
-    	   return;
-       }
-    	int N=a.length;
-       
-       int i=lo,lt=lo, gt=hi+1;
-       Comparable st=a[lo];
-       
-       while(i<=hi){
-    	   while(a[i].compareTo(st)>0) {
-    		   
-    		   exch(a,i,--gt);
-    		   if(gt==lo) break;
-    		   
-    	   }
-    	   while(a[i].compareTo(st)<0) {
-    		   exch(a,i++,lt++);
-    		   if(i==hi) break;
-    	   }
-    	   if(a[i].compareTo(st)==0) {
-    		   i++;
-    	   } 	   
-    	   
-       }
-       
-       sort(a, lo, lt-1);
-       sort(a, gt+1, hi);
+    //my
+//    private static void sort(Comparable[] a, int lo, int hi) { 
+//    	//lo~lt-1 	xiao
+//    	//lt~i		xiangdeng
+//    	//i+1~gt-1	daiding
+//    	//gt~hi	da
+//    	
+//       if(lo>=hi) {
+//    	   return;
+//       }
+//    	int N=a.length;
+//       
+//       int i=lo,lt=lo, gt=hi+1;
+//       Comparable st=a[lo];
+//       
+//       while(i<gt){
+//    	   while(a[i].compareTo(st)>0) {
+//    		   exch(a,i,--gt);//œ‡µ±”⁄¿©»›
+//    		   if(gt<=i) break;
+//    		   
+//    	   }
+//    	   if(a[i].compareTo(st)<0) {
+//    		   
+//    		   exch(a,i++,lt++);
+//    	   }else {
+//    		   i++;
+//    	   }
+//    	       	   
+//       }
+//       
+//       sort(a, lo, lt-1);
+//       sort(a, gt, hi);
+//
+//    }
+   //book
+  private static void sort(Comparable[] a, int lo, int hi) { 
+	  //lo~lt
+	  //lt+1~i
+	  //
+	  //gt~hi
+	if(hi<=lo) return;
+	int lt=lo,i=lo+1,gt=hi;
+	Comparable v=a[lo];
+	while(i<=gt) {
+		int cmp=a[i].compareTo(v);
+		if(cmp<0)
+			exch(a,i++,lt++);
+		else if(cmp>0)
+			exch(a,i,gt--);
+		else
+			i++;
+	}
+	sort(a,lo,lt-1);
+	sort(a,gt+1,hi);
 
-       
-       
-       
-    }
+}
+    
 
 
 
