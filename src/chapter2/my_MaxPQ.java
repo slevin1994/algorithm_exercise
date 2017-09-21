@@ -212,22 +212,41 @@ public class my_MaxPQ<Key> implements Iterable<Key> {
 //        }
 //    }
     //book
+//    private void swim(int k) {
+//    	while(k>1 && less(k/2,k)) {
+//    		exch(k/2,k);
+//    		k=k/2;
+//    	}
+//    }
+//
+//    private void sink(int k) {
+//        while(2*k<n) {
+//        	int j=2*k;
+//        	if(j<n && less(j,j+1)) j++;
+//        	if(!less(k,j)) break;
+//       		exch(k,j);
+//       		k=j;
+//        	
+//        }
+//    }
+    //again
     private void swim(int k) {
+
     	while(k>1 && less(k/2,k)) {
-    		exch(k/2,k);
-    		k=k/2;
+    			exch(k,k/2);
+    			k=k/2;
+
     	}
     }
 
     private void sink(int k) {
-        while(2*k<n) {
-        	int j=2*k;
-        	if(j<n && less(j,j+1)) j++;
-        	if(!less(k,j)) break;
-       		exch(k,j);
-       		k=j;
-        	
-        }
+
+    	while(k*2<=n) {
+    		int j=2*k;
+    		if(j+1<=n && less(j,j+1)) j++;
+    		if(less(j,k)) exch(j,k);
+    		k=j;
+    	}
     }
 
    /***************************************************************************
